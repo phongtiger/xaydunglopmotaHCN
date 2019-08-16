@@ -8,28 +8,34 @@
 <canvas id = "myCanvas" width="1368px" height="768px" style="border: 1px solid #d3d3d3;"></canvas>
 </body>
 <script>
-     let Ractange = function(x,y,chieudai,chieurong ) {
+     let Ractange = function (x,y,chieudai,chieurong ) {
         this.x = x;
         this.y = y;
         this.chieudai = chieudai;
         this.chieurong = chieurong;
         this.getx = function () {
-            return x;
+            return this.x;
         };
         this.gety = function () {
-            return y;
+            return this.y;
         };
         this.getChieudai = function () {
-            return chieudai;
+            return this.chieudai;
         };
         this.getChieurong = function () {
-            return chieurong;
+            return this.chieurong;
         };
-        this.setChieudai = function () {
+        this.setX = function (x) {
+            this.x = x;
+        };
+        this.setY = function (y) {
+            this.y = y;
+        };
+        this.setChieudai = function (chieudai) {
             this.chieudai = chieudai;
         };
-        this.setChieurong = function () {
-            this.Chieurong = chieurong;
+        this.setChieurong = function (chieurong) {
+            this.chieurong = chieurong;
         };
         this.getChuvi = function () {
             return 2*(chieudai+chieurong);
@@ -37,23 +43,34 @@
         this.getDientich = function () {
             return chieurong*chieudai;
         };
-        this.hienThi = function () {
+        this.hienThi = function (x,y,chieudai,chieurong) {
             let c = document.getElementById("myCanvas");
             let ctx= c.getContext("2d");
             ctx.fillStyle = "#FF0000";
             ctx.fillRect(x,y,chieudai,chieurong);
-        }
+        };
     };
-     let hcn1 = new Ractange(100,100,150,75);
-     let x = hcn1.getx();
-     let y = hcn1.gety();
-     let chieudai = hcn1.getChieudai();
-     let chieurong = hcn1.getChieurong();
+     let hcn1 = new Ractange(100,100,160,75);
+      x = hcn1.getx();
+      y = hcn1.gety();
+     chieudai = hcn1.getChieudai();
+     chieurong = hcn1.getChieurong();
      hcn1.hienThi(x,y,chieudai,chieurong);
      let chuVi = hcn1.getChuvi();
      console.log(chuVi);
      let dienTich = hcn1.getDientich();
      console.log(dienTich);
+     console.log("cd: "+hcn1.getChieudai());
+     let hcn2 = new Ractange(x,y,chieudai,chieurong);
+     hcn2.setX(300);
+     hcn2.setY(250);
+     hcn2.setChieudai(700);
+     hcn2.setChieurong(450);
+     x = hcn2.getx();
+     y= hcn2.gety();
+     chieudai = hcn2.getChieudai();
+     chieurong = hcn2.getChieurong();
+     hcn2.hienThi(300,250,700,450);
 
 </script>
 </html>
