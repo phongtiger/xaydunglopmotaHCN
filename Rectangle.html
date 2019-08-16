@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id = "myCanvas" width="1368px" height="768px" style="border: 1px solid #d3d3d3;"></canvas>
+</body>
+<script>
+     let Ractange = function(x,y,chieudai,chieurong ) {
+        this.x = x;
+        this.y = y;
+        this.chieudai = chieudai;
+        this.chieurong = chieurong;
+        this.getx = function () {
+            return x;
+        };
+        this.gety = function () {
+            return y;
+        };
+        this.getChieudai = function () {
+            return chieudai;
+        };
+        this.getChieurong = function () {
+            return chieurong;
+        };
+        this.setChieudai = function () {
+            this.chieudai = chieudai;
+        };
+        this.setChieurong = function () {
+            this.Chieurong = chieurong;
+        };
+        this.getChuvi = function () {
+            return 2*(chieudai+chieurong);
+        };
+        this.getDientich = function () {
+            return chieurong*chieudai;
+        };
+        this.hienThi = function () {
+            let c = document.getElementById("myCanvas");
+            let ctx= c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(x,y,chieudai,chieurong);
+        }
+    };
+     let hcn1 = new Ractange(100,100,150,75);
+     let x = hcn1.getx();
+     let y = hcn1.gety();
+     let chieudai = hcn1.getChieudai();
+     let chieurong = hcn1.getChieurong();
+     hcn1.hienThi(x,y,chieudai,chieurong);
+     let chuVi = hcn1.getChuvi();
+     console.log(chuVi);
+     let dienTich = hcn1.getDientich();
+     console.log(dienTich);
+
+</script>
+</html>
